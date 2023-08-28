@@ -19,7 +19,7 @@
         const resetButton = document.getElementById("reset");
 
         // Fetch the current count from the hosted widget
-        fetch("https://<username>.github.io/<repository-name>")
+        fetch("https://canop7564.github.io/Death-counter/")
             .then(response => response.text())
             .then(data => {
                 const count = parseInt(data.match(/<span id="count">(\d+)<\/span>/)[1]);
