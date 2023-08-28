@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Death Count</title>
+</head>
+<body>
+    <h1>Update Death Count</h1>
+    <p>Current Count: <span id="count">Loading...</span></p>
+    <button id="increase">Increase</button>
+    <button id="decrease">Decrease</button>
+    <button id="reset">Reset</button>
+
+    <script>
+        const countSpan = document.getElementById("count");
+        const increaseButton = document.getElementById("increase");
+        const decreaseButton = document.getElementById("decrease");
+        const resetButton = document.getElementById("reset");
+
+        // Fetch the current count from the hosted widget
+        fetch("https://<username>.github.io/<repository-name>")
+            .then(response => response.text())
+            .then(data => {
+                const count = parseInt(data.match(/<span id="count">(\d+)<\/span>/)[1]);
+                countSpan.textContent = count;
+            });
+
+        increaseButton.addEventListener("click", () => {
+            // Send an HTTP request to increase the count
+            // You'll need to implement the server-side logic to update the count
+        });
+
+        decreaseButton.addEventListener("click", () => {
+            // Send an HTTP request to decrease the count
+        });
+
+        resetButton.addEventListener("click", () => {
+            // Send an HTTP request to reset the count
+        });
+    </script>
+</body>
+</html>
